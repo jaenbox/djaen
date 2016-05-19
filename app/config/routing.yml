@@ -1,3 +1,118 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+index:
+  path: /
+  defaults: { _controller: AppBundle:Default:index }
+
+login:
+  path: /login
+  defaults: { _controller: AppBundle:Security:login }
+
+logout:
+  path: /logout
+
+login_check:
+  path: /login_check
+  defaults: { _controller: AppBundle:Default:index }
+
+user:
+  path: /user
+  defaults: { _controller: AppBundle:User:default }
+
+newCliente:
+  path: /cliente/new
+  defaults: { _controller: AppBundle:Cliente:new }
+
+editCliente:
+  path: /cliente/edit/{id}
+  defaults: { _controller: AppBundle:Cliente:edit }
+
+deleteCliente:
+  path: /cliente/delete/{id}
+  defaults: { _controller: AppBundle:Cliente:delete }
+
+showCliente:
+  path: /cliente/show/{id}
+  defaults: { _controller: AppBundle:Cliente:show }
+
+newAdministrador:
+  path: /admin/new
+  defaults: { _controller: AppBundle:Administrador:new }
+
+editAdministrador:
+  path: /admin/edit/{id}
+  defaults: { _controller: AppBundle:Administrador:edit }
+
+deleteAdministrador:
+  path: /admin/delete/{id}
+  defaults: { _controller: AppBundle:Administrador:delete }
+
+showAdministrador:
+  path: /admin/show/{id}
+  defaults: { _controller: AppBundle:Administrador:show }
+
+newHelpDesk:
+  path: /helpdesk/new
+  defaults: { _controller: AppBundle:HelpDesk:new }
+
+editHelpDesk:
+  path: /helpdesk/edit/{id}
+  defaults: { _controller: AppBundle:HelpDesk:edit }
+
+deleteHelpDesk:
+  path: /helpdesk/delete/{id}
+  defaults: { _controller: AppBundle:HelpDesk:delete }
+
+showHelpDesk:
+  path: /helpdesk/show/{id}
+  defaults: { _controller: AppBundle:HelpDesk:show }
+
+newTecnico:
+  path: /tecnico/new
+  defaults: { _controller: AppBundle:Tecnico:new }
+
+editTecnico:
+  path: /tecnico/edit/{id}
+  defaults: { _controller: AppBundle:Tecnico:edit }
+
+deleteTecnico:
+  path: /tecnico/delete/{id}
+  defaults: { _controller: AppBundle:Tecnico:delete }
+
+showTecnico:
+  path: /tecnico/show/{id}
+  defaults: { _controller: AppBundle:Tecnico:show }
+
+incidencia:
+  path: /incidencia
+  defaults: { _controller: AppBundle:Incidencia:default }
+
+newIncidencia:
+  path: /incidencia/new
+  defaults: { _controller: AppBundle:Incidencia:new }
+
+editIncidencia:
+  path: /incidencia/edit/{id}
+  defaults: { _controller: AppBundle:Incidencia:edit }
+
+deleteIncidencia:
+  path: /incidencia/delete/{id}
+  defaults: { _controller: AppBundle:Incidencia:delete }
+
+listIncidencia:
+  path: /incidencia/list
+  defaults: { _controller: AppBundle:Incidencia:list }
+
+showIncidencia:
+  path: /incidencia/show/{id}
+  defaults: { _controller: AppBundle:Incidencia:show }
+
+newEstado:
+  path: /estado/new
+  defaults: { _controller: AppBundle:Estado:new }
+
+editEstado:
+  path: /estado/edit/{id}
+  defaults: { _controller: AppBundle:Estado:edit }
+
+deleteEstado:
+  path: /estado/delete/{id}
+  defaults: { _controller: AppBundle:Estado:delete }

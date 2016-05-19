@@ -1,24 +1,66 @@
-# To get started with security, check out the documentation:
-# http://symfony.com/doc/current/book/security.html
+# app/config/security.yml
 security:
+    encoders:
+        AppBundle\Entity\Persona:
+          algorithm:  bcrypt
+          cost: 12
 
-    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    role_hierarchy:
+        ROLE_TEC: ROLE_USER
+        ROLE_HELP: ROLE_USER
+        ROLE_SUPER_ADMIN: [ ROLE_ADMIN, ROLE_USER ]
+
     providers:
-        in_memory:
-            memory: ~
+        db_provider:
+          entity:
+            class: AppBundle:Persona
 
     firewalls:
-        # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
         main:
-            anonymous: ~
-            # activate different ways to authenticate
+            pattern: ^/
+            provider: db_provider
+            form_login:
+              login_path: /login
+              check_path: /login_check
+              default_target_path: 'index'
+              always_use_default_target_path: true
+              use_referer: true
+              failure_path: 'index'
+            logout:
+              path: /logout
+              target: 'index'
+            security: true
+            anonymous: true
 
-            # http_basic: ~
-            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/index, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/new, role: ROLE_SUPER_ADMIN }
+        - { path: ^/admin/edit, role: ROLE_SUPER_ADMIN }
+        - { path: ^/admin/delete, role: ROLE_SUPER_ADMIN }
+        - { path: ^/admin/show, role: ROLE_SUPER_ADMIN }
+        - { path: ^/user, role: ROLE_SUPER_ADMIN }
+        - { path: ^/cliente/new, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/cliente/edit, role: ROLE_SUPER_ADMIN }
+        - { path: ^/cliente/delete, role: ROLE_SUPER_ADMIN }
+        - { path: ^/cliente/show, role: ROLE_SUPER_ADMIN }
+        - { path: ^/helpdesk/new, role: ROLE_SUPER_ADMIN }
+        - { path: ^/helpdesk/edit, role: ROLE_SUPER_ADMIN }
+        - { path: ^/helpdesk/delete, role: ROLE_SUPER_ADMIN }
+        - { path: ^/helpdesk/show, role: ROLE_SUPER_ADMIN }
+        - { path: ^/tecnico/new, role: ROLE_SUPER_ADMIN }
+        - { path: ^/editTecnico, role: ROLE_SUPER_ADMIN }
+        - { path: ^/deleteTecnico, role: ROLE_SUPER_ADMIN }
+        - { path: ^/tecnico/show, role: ROLE_SUPER_ADMIN }
+        - { path: ^/incidencia, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_USER ] }
+        - { path: ^/incidencia/new, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP, ROLE_USER ] }
+        - { path: ^/incidencia/edit, role: [ ROLE_SUPER_ADMIN, ROLE_HELP, ROLE_TEC ] }
+        - { path: ^/incidencia/delete, role: [ ROLE_SUPER_ADMIN, ROLE_HELP, ROLE_TEC ] }
+        - { path: ^/incidencia/list, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP ] }
+        - { path: ^/incidencia/show, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP, ROLE_USER ] }
+        - { path: ^/estado/new, role: ROLE_SUPER_ADMIN }
+        - { path: ^/estado/edit, role: ROLE_SUPER_ADMIN }
+        - { path: ^/estado/delete, role: ROLE_SUPER_ADMIN }
