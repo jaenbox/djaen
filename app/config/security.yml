@@ -38,29 +38,29 @@ security:
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/index, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/new, role: ROLE_SUPER_ADMIN }
-        - { path: ^/admin/edit, role: ROLE_SUPER_ADMIN }
-        - { path: ^/admin/delete, role: ROLE_SUPER_ADMIN }
-        - { path: ^/admin/show, role: ROLE_SUPER_ADMIN }
-        - { path: ^/user, role: ROLE_SUPER_ADMIN }
-        - { path: ^/cliente/new, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/cliente/edit, role: ROLE_SUPER_ADMIN }
-        - { path: ^/cliente/delete, role: ROLE_SUPER_ADMIN }
-        - { path: ^/cliente/show, role: ROLE_SUPER_ADMIN }
-        - { path: ^/helpdesk/new, role: ROLE_SUPER_ADMIN }
-        - { path: ^/helpdesk/edit, role: ROLE_SUPER_ADMIN }
-        - { path: ^/helpdesk/delete, role: ROLE_SUPER_ADMIN }
-        - { path: ^/helpdesk/show, role: ROLE_SUPER_ADMIN }
-        - { path: ^/tecnico/new, role: ROLE_SUPER_ADMIN }
-        - { path: ^/editTecnico, role: ROLE_SUPER_ADMIN }
-        - { path: ^/deleteTecnico, role: ROLE_SUPER_ADMIN }
-        - { path: ^/tecnico/show, role: ROLE_SUPER_ADMIN }
-        - { path: ^/incidencia, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_USER ] }
-        - { path: ^/incidencia/new, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP, ROLE_USER ] }
-        - { path: ^/incidencia/edit, role: [ ROLE_SUPER_ADMIN, ROLE_HELP, ROLE_TEC ] }
-        - { path: ^/incidencia/delete, role: [ ROLE_SUPER_ADMIN, ROLE_HELP, ROLE_TEC ] }
-        - { path: ^/incidencia/list, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP ] }
-        - { path: ^/incidencia/show, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP, ROLE_USER ] }
-        - { path: ^/estado/new, role: ROLE_SUPER_ADMIN }
-        - { path: ^/estado/edit, role: ROLE_SUPER_ADMIN }
-        - { path: ^/estado/delete, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/admin/new, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/admin/edit, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/admin/delete, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/admin/show, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/user, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/cliente/new, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: ^/cliente/edit, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/cliente/delete, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/cliente/show, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/helpdesk/new, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/helpdesk/edit, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/helpdesk/delete, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/helpdesk/show, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/tecnico/new, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/editTecnico, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/deleteTecnico, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/tecnico/show, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/incidencia, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_USER ] }
+        #- { path: ^/incidencia/new, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP, ROLE_USER ] }
+        #- { path: ^/incidencia/edit, role: [ ROLE_SUPER_ADMIN, ROLE_HELP, ROLE_TEC ] }
+        #- { path: ^/incidencia/delete, role: [ ROLE_SUPER_ADMIN, ROLE_HELP, ROLE_TEC ] }
+        #- { path: ^/incidencia/list, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP ] }
+        #- { path: ^/incidencia/show, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP, ROLE_USER ] }
+        #- { path: ^/estado/new, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/estado/edit, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/estado/delete, role: ROLE_SUPER_ADMIN }
