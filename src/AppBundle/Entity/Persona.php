@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping\DiscriminatorMap;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
 
 /**
  *

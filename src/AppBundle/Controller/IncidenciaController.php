@@ -35,8 +35,7 @@ class IncidenciaController extends Controller {
 		$repository = $this->getDoctrine() ->getRepository('AppBundle:Estado');
 		// recuperamos todos los recintos existentes
 		$estados = $repository->findAll();
-
-		// Se recoge el usuario y su rol.
+		// Se recoge el usuario
 		$user = $this->get('security.context')->getToken()->getUser();
 		$roles = $user->getRoles();
 
@@ -233,37 +232,85 @@ class IncidenciaController extends Controller {
 		$em = $this->getDoctrine()->getManager();
 		$incidencia = $em->getRepository('AppBundle:Incidencia')->find($id);
 
-		$form = $this->createForm(new IncidenciaForm(), $incidencia);
+		// Creamos el formulario
+		$form = $this->createFormBuilder($incidencia)
+			->add('componente', 'text', array(
+					'label' => 'Componente',
+					'read_only' => true
+			))
+			->add('observaciones', 'textarea', array(
+					'label' => 'Observaciones'
+			))
+			->add('cliente', 'entity', array(
+					'class' => 'AppBundle:Cliente',
+					'label' => 'Cliente',
+					'choice_label' => 'username',
+					'read_only' => true
+			))
+			->add('helpdesk', 'entity', array(
+					'class' => 'AppBundle:HelpDesk',
+					'label' => 'Help-Desk',
+					'choice_label' => 'username',
+					'read_only' => true
+			))
+			->add('tecnico', 'entity', array(
+					'class' => 'AppBundle:Tecnico',
+					'label' => 'Tecnico',
+					'choice_label' => 'username',
+					'required' => true
+			))
+			->add('administrador', 'entity', array(
+					'class' => 'AppBundle:Administrador',
+					'label' => 'Admin',
+					'choice_label' => 'username',
+					'read_only' => true
+			))
+			->add('estado', 'entity', array(
+					'class' => 'AppBundle:Estado',
+					'label' => 'Estado',
+					'choice_label' => 'estado',
+					'required' => true
+			))
+			->add('save', 'submit', array(
+					'label' => 'Guardar'
 
-		$form->handleRequest($request);
-		if($form->isSubmitted() and $form->isValid()) {
+			))
+			->getForm();
 
-			$em = $this->getDoctrine()->getManager();
-			$em->persist($incidencia);
-			$em->flush();
+		if($request->isMethod('POST')) {
 
-			$incidencia = new Incidencia();
+			// Recogemos los datos del formulario.
+			$form->handlerequest($request);
 
-			$em = $this->getDoctrine()->getManager();
-			$incidencia = $em->getRepository('AppBundle:Incidencia')->find($id);
-			$estado = $incidencia->getEstado();
-			$a = $estado->getEstado();
-
-			if($a == 'reparado') {
-				$fecha = self::get_date_cierre();
-				$incidencia->setFechaCierre($fecha); // Fecha de la máquina
+			if($form->isValid()) {
 
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($incidencia);
 				$em->flush();
-			} else {
-				$em->close();
+
+				$incidencia = new Incidencia();
+
+				$em = $this->getDoctrine()->getManager();
+				$incidencia = $em->getRepository('AppBundle:Incidencia')->find($id);
+				$estado = $incidencia->getEstado();
+				$a = $estado->getEstado();
+
+				if($a == 'reparado') {
+					$fecha = self::get_date_cierre();
+					$incidencia->setFechaCierre($fecha); // Fecha de la máquina
+
+					$em = $this->getDoctrine()->getManager();
+					$em->persist($incidencia);
+					$em->flush();
+				} else {
+					$em->close();
+				}
+
+				// Se comprueba que botón se a pulsado. "save" or "saveAndAdd"
+				$nextAction = 'incidencia';
+
+				return $this->redirectToRoute($nextAction);	// Mostramos $nexAction. formulario o listado.
 			}
-
-			// Se comprueba que botón se a pulsado. "save" or "saveAndAdd"
-			$nextAction = 'incidencia';
-
-			return $this->redirectToRoute($nextAction);	// Mostramos $nexAction. formulario o listado.
 		}
 
 		return $this->render('Incidencia/new.html.twig', array(
