@@ -15,25 +15,26 @@
     				<p style="padding:10px;"></p>
     			</div>
 				<ol class="breadcrumb">
-		        	<li><a href="{{ path('index') }}">inicio</a></li>
-		        	<li><a href="{{ path('user') }}">administrador</a></li>
-		            <li>show</li>
+		        	<li><a href="{{ path('index') }}">{{ 'bread.home' | trans }}</a></li>
+		        	<li><a href="{{ path('user') }}">{{ 'bread.admin' | trans }}</a></li>
+		            <li>{{ 'bread.show' | trans }}</li>
 		       	</ol>
 		    </div>
 		</div>
-		<h2>Administrador: {{ admin.username }}</h2>
+		<h2>{{ 'table.admin' | trans }} {{ admin.username }}</h2>
 		<hr>
-		<a href="{{ path('user') }}"><button type="button" class="btn btn-default">Atras</button></a>
+		<a href="{{ path('user') }}"><button type="button" class="btn btn-default">{{ 'table.button' | trans }}</button></a>
 		<hr>
 		<table class="table">
 			<tbody>
-					<tr><th><i class="fa fa-user fa-2x"></th><td>{{ admin.id }}</td></tr>
-					<tr><th>Nombre</th><td>{{ admin.username }}</td></tr>
-					<tr><th>Apellidos</th><td>{{ admin.surname }}</td></tr>
+					<tr><th><i class="fa fa-user fa-2x"/></th><td>{{ admin.id }}</td></tr>
+					<tr><th>{{ 'table.username' | trans }}</th><td>{{ admin.username }}</td></tr>
+					<tr><th>{{ 'table.surname' | trans }}</th><td>{{ admin.surname }}</td></tr>
 					<tr><th>DNI</th><td>{{ admin.dni }}</td></tr>
-					<tr><th><i class="fa fa-at fa-2x"></th><td>{{ admin.email }}</td></tr>
-					<tr><th><i class="fa fa-phone-square fa-2x"></th><td>{{ admin.phone }}</td></tr>
-					<tr><th>Dirección</th><td>{{ admin.address }}</td></tr>
+					<tr><th><i class="fa fa-at fa-2x"/></th><td>{{ admin.email }}</td></tr>
+					<tr><th><i class="fa fa-phone-square fa-2x"/></th><td>{{ admin.phone }}</td></tr>
+					<tr><th>{{ 'table.address' | trans }}</th><td>{{ admin.address }}</td></tr>
+			</tbody>
 		</table>
 		<hr>
 	</div>

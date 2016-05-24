@@ -15,34 +15,34 @@
     				<p style="padding:10px;"></p>
     			</div>
 				<ol class="breadcrumb">
-		        	<li><a href="{{ path('index') }}">inicio</a></li>
-		        	<li><a href="{{ path('incidencia') }}">incidencia</a></li>
-		            <li>show</li>
+		        	<li><a href="{{ path('index') }}">{{ 'bread.home' | trans }}</a></li>
+		        	<li><a href="{{ path('incidencia') }}">{{ 'bread.incidence' | trans }}</a></li>
+		            <li>{{ 'bread.show' | trans }}</li>
 		       	</ol>
 		    </div>
 		</div>
-		<h2>Incidencia: {{ incidencia.id }}</h2>
+		<h2>{{ 'table.incidence' | trans }}: {{ incidencia.id }}</h2>
 		<hr>
 		<a href="{{ path('incidencia') }}"><button type="button" class="btn btn-default">Atras</button></a>
 		<hr>
 		<table class="table">
 			<tbody>
-				<tr><th>Cliente</th><td>{{ incidencia.cliente.username }}&nbsp;{{ incidencia.cliente.surname }}</td></tr>
-				<tr><th>Help Desk asignado</th><td>{{ incidencia.helpdesk.id }}</td></tr>
+				<tr><th>{{ 'table.client' | trans }}</th><td>{{ incidencia.cliente.username }}&nbsp;{{ incidencia.cliente.surname }}</td></tr>
+				<tr><th>{{ 'table.help' | trans }}</th><td>{{ incidencia.helpdesk.id }}</td></tr>
 				{% if incidencia.tecnico | default("") %}
-					<tr><th>Técnico asignado</th><td>{{ incidencia.tecnico.id }}</td></tr>
+					<tr><th>{{ 'table.tec' | trans }}</th><td>{{ incidencia.tecnico.id }}</td></tr>
 					{% else %}
-						<tr><th>Técnico asignado</th><td>No asignado</td></tr>
+						<tr><th>{{ 'table.tec' | trans }}</th><td>No asignado</td></tr>
 				{% endif %}
-				<tr><th>Estado</th><td>{{ incidencia.estado.estado }}</td></tr>
-				<tr><th>Alta</th><td>{{ incidencia.fechaalta.fecha|date('d/m/Y') }}</td></tr>
+				<tr><th>{{ 'table.estate' | trans }}</th><td>{{ incidencia.estado.estado }}</td></tr>
+				<tr><th>{{ 'table.open' | trans }}</th><td>{{ incidencia.fechaalta.fecha|date('d/m/Y') }}</td></tr>
 				{% if incidencia.fechacierre.fecha | default("") %}
-					<tr><th>Cierre</th><td>{{ incidencia.fechacierre.fecha|date('d/m/Y') }}</td></tr>
+					<tr><th>{{ 'table.close' | trans }}</th><td>{{ incidencia.fechacierre.fecha|date('d/m/Y') }}</td></tr>
 					{% else %}
-						<tr><th>Cierre</th><td>En curso</td></tr>
+						<tr><th>{{ 'table.close' | trans }}</th><td>En curso</td></tr>
 				{% endif %}
-				<tr><th>Componente</th><td>{{ incidencia.componente }}</td></tr>
-				<tr><th>Observaciones</th><td>{{ incidencia.observaciones }}</td></tr>
+				<tr><th>{{ 'table.component' | trans }}</th><td>{{ incidencia.componente }}</td></tr>
+				<tr><th>{{ 'table.observations' | trans }}</th><td>{{ incidencia.observaciones }}</td></tr>
 
 		</table>
 		<hr>

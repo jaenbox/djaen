@@ -1,0 +1,73 @@
+#AppBundle.es.yml
+
+index:
+    about: 'About'
+    services: 'Services'
+    sale: 'Sale'
+    repair: 'Repair'
+    courses: 'Courses'
+    our_work: 'Our Job'
+    contact: 'Contact'
+    find_us: 'Find Us'
+    follow: 'Follow'
+    navbar:
+        home: 'Home'
+        incidence: 'Incidence'
+        users: 'Users'
+        access: 'Access'
+        sign_up: 'Sign Up'
+        logout: 'Exit'
+    form:
+        name: 'Name'
+        email: 'ejemplo@ejemplo.com'
+        message: 'Message'
+        send: 'SEND'
+bread:
+    home: 'home'
+    incidence: 'incidence'
+    users: 'users'
+    help: 'help desk'
+    admin: 'administrator'
+    tec: 'tecnic'
+    client: 'client'
+    new: 'new'
+    edit: 'edit'
+    show: 'show'
+
+incidence:
+    incidence: 'Incidences'
+    management: 'Management of incidences.'
+
+users:
+    users: 'Users'
+    management: 'Management of users'
+
+table:
+    admin: 'Administrator'
+    client: 'Client'
+    help: 'Help Desk'
+    tec: 'Tecnic'
+    button: 'New'
+    username: 'Name'
+    surname: 'Surname'
+    phone: 'Phone'
+    email: 'Email'
+    address: 'Address'
+    idiom: 'Idiom'
+    speciality: 'Especiality'
+    estate: 'State'
+    component: 'Component'
+    help: 'Help Desk'
+    tec: 'Tecnic'
+    open: 'Discharge Date'
+    close: 'Leaving Date'
+    observations: 'Observations'
+    edit: 'Edit'
+    delete: 'Delete'
+    new: 'New'
+    button: 'Back'
+
+login:
+    username: 'Username'
+    password: 'Password'
+    button: 'Send'

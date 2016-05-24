@@ -1,118 +1,195 @@
 index:
-  path: /
-  defaults: { _controller: AppBundle:Default:index }
+  path: /{_locale}
+  defaults: { _controller: AppBundle:Default:index, _locale: es }
+  requirements:
+    _locale: es|en
 
 login:
   path: /login
   defaults: { _controller: AppBundle:Security:login }
+  requirements:
+    _locale: es|en
 
 logout:
-  path: /logout
+  path: /{_locale}/logout
+  requirements:
+    _locale: es|en
 
 login_check:
-  path: /login_check
+  path: /{_locale}/login_check
   defaults: { _controller: AppBundle:Default:index }
+  requirements:
+    _locale: es|en
 
 user:
-  path: /user
+  path: /{_locale}/user
   defaults: { _controller: AppBundle:User:default }
+  requirements:
+    _locale: es|en
 
 newCliente:
-  path: /cliente/new
+  path: /{_locale}/cliente/new
   defaults: { _controller: AppBundle:Cliente:new }
+  requirements:
+    _locale: es|en
 
 editCliente:
-  path: /cliente/edit/{id}
+  path: /{_locale}/cliente/edit/{id}
   defaults: { _controller: AppBundle:Cliente:edit }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 deleteCliente:
-  path: /cliente/delete/{id}
+  path: /{_locale}/cliente/delete/{id}
   defaults: { _controller: AppBundle:Cliente:delete }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 showCliente:
-  path: /cliente/show/{id}
+  path: /{_locale}/cliente/show/{id}
   defaults: { _controller: AppBundle:Cliente:show }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 newAdministrador:
-  path: /admin/new
+  path: /{_locale}/admin/new
   defaults: { _controller: AppBundle:Administrador:new }
+  requirements:
+    _locale: es|en
 
 editAdministrador:
-  path: /admin/edit/{id}
+  path: /{_locale}/admin/edit/{id}
   defaults: { _controller: AppBundle:Administrador:edit }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 deleteAdministrador:
-  path: /admin/delete/{id}
+  path: /{_locale}/admin/delete/{id}
   defaults: { _controller: AppBundle:Administrador:delete }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 showAdministrador:
-  path: /admin/show/{id}
+  path: /{_locale}/admin/show/{id}
   defaults: { _controller: AppBundle:Administrador:show }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 newHelpDesk:
-  path: /helpdesk/new
+  path: /{_locale}/helpdesk/new
   defaults: { _controller: AppBundle:HelpDesk:new }
+  requirements:
+    _locale: es|en
 
 editHelpDesk:
-  path: /helpdesk/edit/{id}
+  path: /{_locale}/helpdesk/edit/{id}
   defaults: { _controller: AppBundle:HelpDesk:edit }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 deleteHelpDesk:
-  path: /helpdesk/delete/{id}
+  path: /{_locale}/helpdesk/delete/{id}
   defaults: { _controller: AppBundle:HelpDesk:delete }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 showHelpDesk:
-  path: /helpdesk/show/{id}
+  path: /{_locale}/helpdesk/show/{id}
   defaults: { _controller: AppBundle:HelpDesk:show }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 newTecnico:
-  path: /tecnico/new
+  path: /{_locale}/tecnico/new
   defaults: { _controller: AppBundle:Tecnico:new }
+  requirements:
+    _locale: es|en
 
 editTecnico:
-  path: /tecnico/edit/{id}
+  path: /{_locale}/tecnico/edit/{id}
   defaults: { _controller: AppBundle:Tecnico:edit }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 deleteTecnico:
-  path: /tecnico/delete/{id}
+  path: /{_locale}/tecnico/delete/{id}
   defaults: { _controller: AppBundle:Tecnico:delete }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 showTecnico:
-  path: /tecnico/show/{id}
+  path: /{_locale}/tecnico/show/{id}
   defaults: { _controller: AppBundle:Tecnico:show }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 incidencia:
-  path: /incidencia
+  path: /{_locale}/incidencia
   defaults: { _controller: AppBundle:Incidencia:default }
+  requirements:
+    _locale: es|en
 
 newIncidencia:
-  path: /incidencia/new
+  path: /{_locale}/incidencia/new
   defaults: { _controller: AppBundle:Incidencia:new }
+  requirements:
+    _locale: es|en
 
 editIncidencia:
-  path: /incidencia/edit/{id}
+  path: /{_locale}/incidencia/edit/{id}
   defaults: { _controller: AppBundle:Incidencia:edit }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 deleteIncidencia:
-  path: /incidencia/delete/{id}
+  path: /{_locale}/incidencia/delete/{id}
   defaults: { _controller: AppBundle:Incidencia:delete }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 listIncidencia:
-  path: /incidencia/list
+  path: /{_locale}/incidencia/list
   defaults: { _controller: AppBundle:Incidencia:list }
+  requirements:
+    _locale: es|en
 
 showIncidencia:
-  path: /incidencia/show/{id}
+  path: /{_locale}/incidencia/show/{id}
   defaults: { _controller: AppBundle:Incidencia:show }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 newEstado:
-  path: /estado/new
+  path: /{_locale}/estado/new
   defaults: { _controller: AppBundle:Estado:new }
+  requirements:
+    _locale: es|en
 
 editEstado:
-  path: /estado/edit/{id}
+  path: /{_locale}/estado/edit/{id}
   defaults: { _controller: AppBundle:Estado:edit }
+  requirements:
+    id: \d+
+    _locale: es|en
 
 deleteEstado:
-  path: /estado/delete/{id}
+  path: /{_locale}/estado/delete/{id}
   defaults: { _controller: AppBundle:Estado:delete }
+  requirements:
+    id: \d+
+    _locale: es|en

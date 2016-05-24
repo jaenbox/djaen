@@ -1,0 +1,75 @@
+#AppBundle.es.yml
+
+index:
+    about: 'Nosotros'
+    services: 'Servicios'
+    sale: 'Venta'
+    repair: 'Reparación'
+    courses: 'Cursos'
+    our_work: 'Nuestro Trabajo'
+    contact: 'Contacto'
+    find_us: 'Encuentranos'
+    follow: 'Siguenos'
+    navbar:
+        home: 'Home'
+        incidence: 'Incidencia'
+        users: 'Usuarios'
+        access: 'Acceder'
+        sign_up: 'Registrarse'
+        logout: 'Salir'
+    form:
+        name: 'Nombre'
+        email: 'ejemplo@ejemplo.com'
+        message: 'Mensaje'
+        send: 'ENVIAR'
+bread:
+    home: 'home'
+    incidence: 'incidencia'
+    users: 'usuarios'
+    help: 'help desk'
+    admin: 'administrador'
+    tec: 'técnico'
+    client: 'cliente'
+    new: 'nuevo'
+    edit: 'editar'
+    show: 'mostrar'
+
+incidence:
+    incidence: 'Incidencias'
+    management: 'Gestión de incidencias.'
+
+users:
+    users: 'Usuarios'
+    management: 'Gestión de usuarios'
+
+table:
+    admin: 'Administrador'
+    client: 'Cliente'
+    help: 'Help Desk'
+    tec: 'Técnico'
+    button: 'Nuevo'
+    username: 'Nombre'
+    surname: 'Apellidos'
+    phone: 'Teléfono'
+    email: 'Email'
+    address: 'Dirección'
+    idiom: 'Idiomas'
+    speciality: 'Especialidad'
+    estate: 'Estado'
+    component: 'Componente'
+    estate: 'Estado'
+    help: 'Help Desk'
+    tec: 'Técnico'
+    open: 'Fecha Alta'
+    close: 'Fecha Cierre'
+    observations: 'Observaciones'
+    edit: 'Editar'
+    delete: 'Borrar'
+    question: '¿Estas seguro?'
+    new: 'Nueva'
+    button: 'Atrás'
+
+login:
+    username: 'Usuario'
+    password: 'Contraseña'
+    button: 'Enviar'

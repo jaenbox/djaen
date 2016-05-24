@@ -1,3 +1,4 @@
+{% trans_default_domain 'AppBundle' %}
 {% block stylesheets %}
 	{% stylesheets 'bundles/framework/css/login.css' filter='cssrewrite' %}
 		<link rel="stylesheet" href="{{ asset_url }}"/>
@@ -17,14 +18,14 @@
 				<div class="login-form">
 					<form action="{{ path('login_check') }}" method="post">
 						<div class="control-group">
-							<label for="username">Username:</label>
+							<label for="username">{{ 'login.username' | trans }}</label>
 			    			<input type="text" id="username" name="_username" value="{{ last_username }}" />
 			    		</div>
 			    		<div class="control-group">
-			    			<label for="password">Password:</label>
+			    			<label for="password">{{ 'login.password' | trans }}</label>
 			    			<input type="password" id="password" name="_password" />
 			    		</div>
-			    		<button class="btn btn-primary btn-large btn-block" type="submit">login</button>
+			    		<button class="btn btn-primary btn-large btn-block" type="submit">{{ 'login.button' | trans }}</button>
 			    	</form>
 				</div>
 			</div>

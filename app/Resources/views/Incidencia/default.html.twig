@@ -17,30 +17,30 @@
     				<p style="padding:10px;"></p>
     			</div>
 				<ol class="breadcrumb">
-		        	<li><a href="{{ path('index') }}">inicio</a></li>
-		            <li>incidencia</li>
+		        	<li><a href="{{ path('index') }}"><td>{{ 'bread.new' | trans }}</td></a></li>
+		            <li><td>{{ 'bread.incidence' | trans }}</td></li>
 		       	</ol>
 		    </div>
 		</div>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12">
-        		<h2>Incidencias {{ user.username }}</h2>
+        		<h2><td>{{ 'incidence.incidence' | trans }}</td> {{ user.username }}</h2>
 				<hr>
-				<p>Gestión de incidencias.</p>
+				<p><td>{{ 'incidence.management' | trans }}</td></p>
 				<hr>
 				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="#sectionA">Incidencias</a></li>
+					<li class="active"><a data-toggle="tab" href="#sectionA">{{ 'table.incidence' | trans }}</a></li>
 					{% if is_granted('ROLE_SUPER_ADMIN') %}
-					<li><a data-toggle="tab" href="#sectionB">Estados</a></li>
+					<li><a data-toggle="tab" href="#sectionB">{{ 'incidence.estate' | trans }}</a></li>
 					{% endif %}
 				</ul>
 				<div class="tab-content">
 					<div id="sectionA" class="tab-pane fade in active">
-						<h2>Incidencias</h2>
+						<h2>{{ 'table.incidence' | trans }}</h2>
 						{% for rol in roles%}
 							{# No se le permite a los help desk y tecnicos generar averias#}
 							{% if rol.role != 'ROLE_HELP' and rol.role != 'ROLE_TEC'%}
-								<a href="{{ path('newIncidencia') }}"><button type="button" class="btn btn-default">Nueva</button></a>
+								<a href="{{ path('newIncidencia') }}"><button type="button" class="btn btn-default"><td>{{ 'table.new' | trans }}</td></button></a>
 							{% endif %}
 						{% endfor %}
 						<hr>
@@ -49,21 +49,21 @@
 								<thead>
 									<tr>
 										<td>Id</td>
-										<td>Componente</td>
-										<td>Estado</td>
-										<td>Help Desk</td>
-										<td>Técnico</td>
-										<td>Fecha Alta</td>
-										<td>Fecha Cierre</td>
+										<td>{{ 'table.component' | trans }}</td>
+										<td>{{ 'table.estate' | trans }}</td>
+										<td>{{ 'table.help' | trans }}</td>
+										<td>{{ 'table.tec' | trans }}</td>
+										<td>{{ 'table.open' | trans }}</td>
+										<td>{{ 'table.close' | trans }}</td>
 										{% if is_granted('ROLE_HELP') %}
-											<td>Editar</td>
+											<td><td>{{ 'table.edit' | trans }}</td></td>
 										{% endif %}
 										{% if is_granted('ROLE_TEC') %}
-											<td>Editar</td>
+											<td><td>{{ 'table.edit' | trans }}</td></td>
 										{% endif %}
 										{% if is_granted('ROLE_SUPER_ADMIN') %}
-											<td>Editar</td>
-											<td>Borrar</td>
+											<td><td>{{ 'table.edit' | trans }}</td></td>
+											<td><td>{{ 'table.delete' | trans }}</td></td>
 										{% endif %}
 									</tr>
 								</thead>
@@ -121,7 +121,7 @@
 															'deleteIncidencia',
 															{ 'id': incidencia.id }
 														)
-														}}"><i class="fa fa-trash fa-lg"></i></a></td>
+														}}" onclick="return confirm('Are you sure?')"><i class="fa fa-trash fa-lg"></i></a></td>
 													{% endif %}
 												</tr>
 										{% endfor %}
@@ -131,17 +131,17 @@
 						<hr>
 					</div>
 					<div id="sectionB" class="tab-pane fade">
-        				<h2>Estado</h2>
-        				<a href="{{ path('newEstado') }}"><button type="button" class="btn btn-default">Nuevo</button></a>
+        				<h2>{{ 'table.estate' | trans }}</h2>
+        				<a href="{{ path('newEstado') }}"><button type="button" class="btn btn-default"><td>{{ 'table.new' | trans }}</td></button></a>
 						<hr>
 						<table class="table table-striped">
 							<tbody>
 								<thead>
 									<tr>
 										<td>Id</td>
-										<td>Estado</td>
-										<td>Editar</td>
-										<td>Eliminar</td>
+										<td>{{ 'table.estate' | trans }}</td>
+										<td>{{ 'table.edit' | trans }}</td>
+										<td>{{ 'table.delete' | trans }}</td>
 									</tr>
 								</thead>
 									{% for estado in estados%}
@@ -159,7 +159,7 @@
 													'deleteEstado',
 													{ 'id': estado.id }
 												)
-												}}"><i class="fa fa-trash fa-lg"></i></a></td>
+												}}" onclick="return confirm('Are you sure?')"><i class="fa fa-trash fa-lg"></i></a></td>
 										</tr>
 									{% endfor %}
 							</tbody>

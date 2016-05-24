@@ -17,14 +17,14 @@
     				<p style="padding:10px;"></p>
     			</div>
 				<ol class="breadcrumb">
-		        	<li><a href="{{ path('index') }}">inicio</a></li>
-		            <li>new</li>
+		        	<li><a href="{{ path('index') }}">{{ 'bread.home' | trans }}</a></li>
+		            <li>{{ 'bread.new' | trans }}</li>
 		       	</ol>
 		    </div>
 		</div>
-		<a href="{{ path('incidencia') }}"><button type="button" class="btn btn-default">Incidencias</button></a>
+		<a href="{{ path('incidencia') }}"><button type="button" class="btn btn-default">{{ 'table.incidence' | trans }}</button></a>
 		<hr>
-		<h2>Nueva Incidencia</h2>
+		<h2>{{ 'table.incidence' | trans }}</h2>
 		<div class="row">
 			<div class="col-sm-8">
 				{{ form_start(form) }}

@@ -19,48 +19,53 @@
 	        <!-- Latest compiled and minified JavaScript -->
 	        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	        <!--  Google font ROBOTO -->
-	        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-	        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css">
+	        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>        
 	        {% stylesheets 'bundles/framework/css/mystyles.css' filter='cssrewrite' %}
 			    <link rel="stylesheet" href="{{ asset_url }}"/>
 			{% endstylesheets %}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body  data-spy="scroll" data-target=".navbar" data-offset="50">
+    <body  data-spy="scroll" data-target=".navbarMain" data-offset="50">
     	<!-- Navbar -->
-    	<div class="navbar-wrapper">
-    		<div class="navbar-container">
-				<div class= "navbar navbar-inverse navbar-static-top container" role="navigation">
-					<div class="navbar-collapse collapse">
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="{{ path('index') }}">Inicio</a></li>
-							<li><a href="{{ path('incidencia') }}">Incidencia</a></li>
-							{% if is_granted('ROLE_SUPER_ADMIN') %}
-								<li><a href="{{ path('user') }}">Usuarios</a></li>
-							{% endif %}
-							{% if is_granted('IS_AUTHENTICATED_FULLY')%}
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <span class="glyphicon glyphicon glyphicon-user"></span> {{ app.user.username }}<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li role="separator" class="divider"></li>
-                                        <li><a class="glyphicon glyphicon-log-out" href="{{ path('logout') }}">Salir</a></li>
-                                    </ul>
-                                </li>
-                            {% else %}
-                            	<li>
-                                	<a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span>Acceder</a>
-                                </li>
-                            {% endif %}                            	
+    	<nav class="navbar navbar-default navbar-opaque navbar-fixed-top">
+      		<div class="container">
+        		<div class="navbar-header">
+          			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			            <span class="sr-only">Toggle navigation</span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+          			</button>
+          			<a class="navbar-brand" href="{{ path('index') }}">Ticketing</a>
+        		</div>
+        		<div id="navbar" class="navbar-collapse collapse navbar-right">
+          			<ul class="nav navbar-nav">
+            			<li><a href="{{ path('index') }}">{{ 'index.navbar.home' | trans }}</a></li>
+			            <li><a href="{{ path('incidencia') }}">{{ 'index.navbar.incidence' | trans }}</a></li>
+			            {% if is_granted('ROLE_SUPER_ADMIN') %}
+							<li><a href="{{ path('user') }}">{{ 'index.navbar.users' | trans }}</a></li>
+						{% endif %}
+						{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+                        	<li class="dropdown">
+                            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon glyphicon-user"></span> {{ app.user.username }}<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                	<li role="separator" class="divider"></li>
+                                    <li><a class="glyphicon glyphicon-log-out" href="{{ path('logout') }}">{{ 'index.navbar.logout' | trans }}</a></li>
+                                </ul>
+                            </li>
+                      	{% else %}
+                           	<li>
+                            	<a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> {{ 'index.navbar.access' | trans }}</a>
+                            </li>
+                        {% endif %}                            	
                         	<li>
-                        	{% if is_granted('IS_AUTHENTICATED_FULLY')%}
-            					<!-- No mostramos el boton de acceder.-->
-                    		{% else %}
-                    			<a href="{{ path('newCliente') }}"><span class="glyphicon glyphicon-plus"></span>Registrarse</a>
-                    		{% endif %}
+                       	{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+            			{% else %}
+                    		<a href="{{ path('newCliente') }}"><span class="glyphicon glyphicon-plus"></span> {{ 'index.navbar.sign_up' | trans }}</a>
+                    	{% endif %}
                         	</li>
-	                        <!-- Botón Idioma-->
 	                        <li class="dropdown">
 	                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
 	                            role="button" aria-haspopup="true" aria-expanded="false">
@@ -69,12 +74,11 @@
 	                                <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'es'})) }}">es</a></li>                          
 	                        		<li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">en</a></li>
 	                            </ul>
-	                        </li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+	                        </li>             			
+                	</ul>
+        		</div>
+      		</div>
+    	</nav>
 		<!-- Login modal-->
         <div id="loginModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -90,17 +94,17 @@
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
                         
                             <div class="form-group">
-                                <label for="username" class="sr-only">Usuario</label>
+                                <label for="username" class="sr-only">{{ 'login.username' | trans }}</label>
     							<input type="text" id="username" name="_username" required="required" 
     								placeholder="Usuario o Correo" class="form-control input-sm"/>
                             </div>
                             <div class="form-group">
-                                <label for="password" class="sr-only">Contraseña</label>
+                                <label for="password" class="sr-only">{{ 'login.password' | trans }}</label>
     							<input type="password" id="password" name="_password" required="required"
     									 placeholder="Contraseña" class="form-control input-sm" />
                             </div>
                             <input type="submit" id="_submit" name="_submit"
-                                   value="Enviar" class="btn btn-info btn-sm" />
+                                   value="{{ 'login.button' | trans }}" class="btn btn-info btn-sm" />
                         </form>
                     </div>
                 </div>
@@ -118,52 +122,51 @@
                         <div class="row">
                                 <div class="col-sm-6 col-md-3 col-lg-2 col-lg-offset-1">
                                     <div class="footer-content">
-                                        <h2 class="title">Encuentranos</h2>
+                                        <h2 class="title">{{ 'index.find_us' | trans }}</h2>
                                         <ul class="list-icons">
-                                            <li>Ontinyent 46870, Valencia</li>
+                                            <li><i class="fa fa-home pr-10"></i> Ontinyent 46870, Valencia</li>
                                             <li><i class="fa fa-phone pr-10 text-default"></i> +00 1234567890</li>
-                                            <li><a href="mailto:jaenxbox@gmail.com"><i class="fa fa-envelope-o pr-10"></i>jaenxbox@gmail.com</a></li>
+                                            <li><a href="mailto:jaenxbox@gmail.com"><i class="fa fa-envelope-o pr-10"></i> jaenxbox@gmail.com</a></li>
                                         </ul>                                    
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-3 col-lg-2 col-lg-offset-1">
                                     <div class="footer-content">
-                                        <h2 class="title">Siguenos</h2>
-                                        <ul class="caja-redes">
-                                            <li><a href="http://www.twitter.com" class="icon-button linkedin"><i class="icon-linkedin"></i><span></span></a></li>
-                                            <li><a href="http://www.twitter.com" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a></li>
-                                            <li><a href="http://www.facebook.com" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a></li>
-                                            <li><a href="http://plus.google.com" class="icon-button google-plus"><i class="icon-google-plus"></i><span></span></a></li>
-                                        </ul>   
+                                        <h2 class="title">{{ 'index.follow' | trans }}</h2>
+                                        <div class="nav navbar-nav">
+					                        <a href="https://github.com/jaenbox"><i class="fa fa-github fa-3x social-icon"></i></a>
+        									<a href="https://www.linkedin.com/in/davidjaen"><i class="fa fa-linkedin fa-3x social-icon"></i></a>
+					                        <a href="https://twitter.com/jaen64bits"><i class="fa fa-twitter fa-3x social-icon"></i></a>					                        
+                    					</div>  
                                     </div>
                                 </div>
                                 <div class="clearfix visible-sm"></div>
                                 <div class="col-md-6 col-lg-4 col-lg-offset-1">
                                     <div class="footer-content">
-                                        <h2 class="title">Contacto</h2>
+                                        <h2 class="title">{{ 'index.contact' | trans }}</h2>
                                         <form role="form" id="footer-form" class="margin-clear">
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group has-feedback mb-10">
-                                                        <label class="sr-only" for="name">Nombre</label>
+                                                        <label class="sr-only" for="name">{{ 'index.form.find_us' | trans }}</label>
                                                         <input type="text" class="form-control" id="name2" placeholder="Nombre" name="name">
                                                         <i class="fa fa-user form-control-feedback"></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group has-feedback mb-10">
-                                                        <label class="sr-only" for="email">Dirección de correo</label>
+                                                        <label class="sr-only" for="email">{{ 'index.form.email' | trans }}</label>
                                                         <input type="email" class="form-control" id="email" placeholder="Direción de correo" name="email">
                                                         <i class="fa fa-envelope form-control-feedback"></i>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group has-feedback mb-10">
-                                                <label class="sr-only" for="message">Mensaje</label>
+                                                <label class="sr-only" for="message">{{ 'index.form.message' | trans }}</label>
                                                 <textarea class="form-control" rows="4" id="message2" placeholder="Mensaje" name="message"></textarea>
                                                 <i class="fa fa-pencil form-control-feedback"></i>
                                             </div>
-                                            <input type="submit" value="Enviar" class="margin-clear submit-button radius-50 btn btn-default">
+                                            <input type="submit" value="{{ 'index.form.send' | trans }}" class="margin-clear submit-button radius-50 btn btn-default">
                                         </form>
                                     </div>
                                 </div>

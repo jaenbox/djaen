@@ -1,0 +1,4 @@
+administrator,ROLE_SUPER_ADMIN
+help desk,ROLE_HELP
+tecnic,ROLE_TEC
+user,ROLE_USER

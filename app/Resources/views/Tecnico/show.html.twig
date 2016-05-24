@@ -27,19 +27,20 @@
 		<hr>
 		<table class="table">
 			<tbody>
-					<tr><th><i class="fa fa-user fa-2x"></th><td>{{ tecnico.id }}</td></tr>
-					<tr><th>Nombre</th><td>{{ tecnico.username }}</td></tr>
-					<tr><th>Apellidos</th><td>{{ tecnico.surname }}</td></tr>
+					<tr><th><i class="fa fa-user fa-2x"/></th><td>{{ tecnico.id }}</td></tr>
+					<tr><th>{{ 'table.username' | trans }}</th><td>{{ tecnico.username }}</td></tr>
+					<tr><th>{{ 'table.surname' | trans }}</th><td>{{ tecnico.surname }}</td></tr>
 					<tr><th>DNI</th><td>{{ tecnico.dni }}</td></tr>
-					<tr><th><i class="fa fa-at fa-2x"></th><td>{{ tecnico.email }}</td></tr>
-					<tr><th><i class="fa fa-phone-square fa-2x"></th><td>{{ tecnico.phone }}</td></tr>
-					<tr><th>Dirección</th><td>{{ tecnico.address }}</td></tr>
-					<tr><th>Especialidad</th><td>	{% if tecnico.especialidad == 's' %}
+					<tr><th><i class="fa fa-at fa-2x"/></th><td>{{ tecnico.email }}</td></tr>
+					<tr><th><i class="fa fa-phone-square fa-2x"/></th><td>{{ tecnico.phone }}</td></tr>
+					<tr><th>{{ 'table.address' | trans }}</th><td>{{ tecnico.address }}</td></tr>
+					<tr><th>{{ 'table.speciality' | trans }}</th><td>	{% if tecnico.especialidad == 's' %}
 														Software</td></tr>
 													{% else %}
 														Hardware</td></tr>
 													{% endif %}
-					<tr><th>Administrador</th><td>{{ tecnico.administrador.username }}</td></tr>
+					<tr><th>{{ 'table.admin' | trans }}</th><td>{{ tecnico.administrador.username }}</td></tr>
+			</tbody>
 		</table>
 		<hr>
 	</div>

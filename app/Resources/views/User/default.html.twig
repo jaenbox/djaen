@@ -17,39 +17,39 @@
     				<p style="padding:10px;"></p>
     			</div>
 				<ol class="breadcrumb">
-		        	<li><a href="{{ path('index') }}">inicio</a></li>
-		            <li>usuario</li>
+		        	<li><a href="{{ path('index') }}">{{ 'bread.home' | trans }}</a></li>
+		            <li>{{ 'bread.users' | trans }}</li>
 		       	</ol>
 		    </div>
 		</div>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12">
-				<h2>Usuarios</h2>
+				<h2>{{ 'users.users' | trans }}</h2>
 				<hr>
-				<p>Gestión de usuarios de la aplicación web.</p>
+				<p>{{ 'users.management' | trans }}</p>
 				<hr>
 				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="#sectionA">Clientes</a></li>
-					<li><a data-toggle="tab" href="#sectionB">Help Desk</a></li>
-					<li><a data-toggle="tab" href="#sectionC">Tecnicos</a></li>
-					<li><a data-toggle="tab" href="#sectionD">Administrador</a></li>
+					<li class="active"><a data-toggle="tab" href="#sectionA">{{ 'table.client' | trans }}</a></li>
+					<li><a data-toggle="tab" href="#sectionB">{{ 'table.help' | trans }}</a></li>
+					<li><a data-toggle="tab" href="#sectionC">{{ 'table.tec' | trans }}</a></li>
+					<li><a data-toggle="tab" href="#sectionD">{{ 'table.admin' | trans }}</a></li>
 				</ul>
 				<div class="tab-content">
         			<div id="sectionA" class="tab-pane fade in active">
-        				<h2>Cliente</h2>
-        				<a href="{{ path('newCliente') }}"><button type="button" class="btn btn-default">Nuevo</button></a>
+        				<h2>{{ 'table.client' | trans }}</h2>
+        				<a href="{{ path('newCliente') }}"><button type="button" class="btn btn-default">{{ 'table.button' | trans }}</button></a>
 						<hr>
 						<table class="table table-striped">
 							<tbody>
 								<thead>
 									<tr>
 										<td>Id</td>
-										<td>Nombre</td>
-										<td>Apellidos</td>
-										<td>Teléfono</td>
-										<td>Email</td>
-										<td>{{ 'global.edit'|trans }}</td>
-										<td>{{ 'global.delete'|trans }}</td>
+										<td>{{ 'table.username' | trans }}</td>
+										<td>{{ 'table.surname' | trans }}</td>
+										<td>{{ 'table.phone' | trans }}</td>
+										<td>{{ 'table.email' | trans }}</td>
+										<td>{{ 'table.edit' | trans }}</td>
+										<td>{{ 'table.delete' | trans }}</td>
 									</tr>
 								</thead>
 									{% for cliente in clientes %}
@@ -77,7 +77,7 @@
 													'deleteCliente',
 													{ 'id': cliente.id }
 												)
-												}}"><i class="fa fa-trash fa-lg"></i></a></td>
+												}}" onclick="return confirm('Are you sure?')"><i class="fa fa-trash fa-lg"></i></a></td>
 
 										</tr>
 									{% endfor %}
@@ -86,19 +86,19 @@
         			</div>
         			<div id="sectionB" class="tab-pane fade">
         				<h2>Help Desk</h2>
-        				<a href="{{ path('newHelpDesk') }}"><button type="button" class="btn btn-default">Nuevo</button></a>
+        				<a href="{{ path('newHelpDesk') }}"><button type="button" class="btn btn-default">{{ 'table.button' | trans }}</button></a>
 						<hr>
 						<table class="table table-striped">
 							<tbody>
 								<thead>
 									<tr>
 										<td>Id</td>
-										<td>Nombre</td>
-										<td>Apellidos</td>
-										<td>Teléfono</td>
-										<td>Email</td>
-										<td>Editar</td>
-										<td>Eliminar</td>
+										<td>{{ 'table.username' | trans }}</td>
+										<td>{{ 'table.surname' | trans }}</td>
+										<td>{{ 'table.phone' | trans }}</td>
+										<td>{{ 'table.email' | trans }}</td>
+										<td>{{ 'table.edit' | trans }}</td>
+										<td>{{ 'table.delete' | trans }}</td>
 									</tr>
 								</thead>
 									{% for helpdesk in helpdesks%}
@@ -125,7 +125,7 @@
 													'deleteHelpDesk',
 													{ 'id': helpdesk.id }
 												)
-												}}"><i class="fa fa-trash fa-lg"></i></a></td>
+												}}" onclick="return confirm('Are you sure?')"><i class="fa fa-trash fa-lg"></i></a></td>
 										</tr>
 									{% endfor %}
 							</tbody>
@@ -133,19 +133,19 @@
         			</div>
         			<div id="sectionC" class="tab-pane fade">
         				<h2>Tecnico</h2>
-        				<a href="{{ path('newTecnico') }}"><button type="button" class="btn btn-default">Nuevo</button></a>
+        				<a href="{{ path('newTecnico') }}"><button type="button" class="btn btn-default">{{ 'table.button' | trans }}</button></a>
 						<hr>
 						<table class="table table-striped">
 							<tbody>
 								<thead>
 									<tr>
 										<td>Id</td>
-										<td>Nombre</td>
-										<td>Apellidos</td>
-										<td>Teléfono</td>
-										<td>Email</td>
-										<td>Editar</td>
-										<td>Eliminar</td>
+										<td>{{ 'table.username' | trans }}</td>
+										<td>{{ 'table.surname' | trans }}</td>
+										<td>{{ 'table.phone' | trans }}</td>
+										<td>{{ 'table.email' | trans }}</td>
+										<td>{{ 'table.edit' | trans }}</td>
+										<td>{{ 'table.delete' | trans }}</td>
 									</tr>
 								</thead>
 									{% for tecnico in tecnicos%}
@@ -172,7 +172,7 @@
 													'deleteTecnico',
 													{ 'id': tecnico.id }
 												)
-												}}"><i class="fa fa-trash fa-lg"></i></a></td>
+												}}" onclick="return confirm('Are you sure?')"><i class="fa fa-trash fa-lg"></i></a></td>
 										</tr>
 									{% endfor %}
 							</tbody>
@@ -180,19 +180,19 @@
         			</div>
         			<div id="sectionD" class="tab-pane fade">
 						<h2>Administrador</h2>
-        				<a href="{{ path('newAdministrador') }}"><button type="button" class="btn btn-default">Nuevo</button></a>
+        				<a href="{{ path('newAdministrador') }}"><button type="button" class="btn btn-default">{{ 'table.button' | trans }}</button></a>
 						<hr>
 						<table class="table table-striped">
 							<tbody>
 								<thead>
 									<tr>
 										<td>Id</td>
-										<td>Nombre</td>
-										<td>Apellidos</td>
-										<td>Teléfono</td>
-										<td>Email</td>
-										<td>Editar</td>
-										<td>Eliminar</td>
+										<td>{{ 'table.username' | trans }}</td>
+										<td>{{ 'table.surname' | trans }}</td>
+										<td>{{ 'table.phone' | trans }}</td>
+										<td>{{ 'table.email' | trans }}</td>
+										<td>{{ 'table.edit' | trans }}</td>
+										<td>{{ 'table.delete' | trans }}</td>
 
 									</tr>
 								</thead>
@@ -221,57 +221,15 @@
 													'deleteAdministrador',
 													{ 'id': admin.id }
 												)
-												}}" onclick="return confirm('are u sure?')"><i class="fa fa-trash fa-lg"></i></a></td>
+												}}" onclick="return confirm('Are you sure?')"><i class="fa fa-trash fa-lg"></i></a></td>
 										</tr>
 									{% endfor %}
 							</tbody>
 						</table>
         			</div>
-        			{# <div id="sectionE" class="tab-pane fade">
-        				<h2>Roles</h2>
-        				<a href="{{ path('newRole') }}"><button type="button" class="btn btn-default">Nuevo</button></a>
-						<hr>
-						<table class="table table-striped">
-							<tbody>
-								<thead>
-									<tr>
-										<td>Id</td>
-										<td>Nombre</td>
-										<td>Role</td>
-									</tr>
-								</thead>
-									{% for role in roles%}
-										<tr>
-											<td><a href="{{
-												path(
-													'showRole',
-													{ 'id': role.id }
-												)
-												}}">
-												{{ role.id }}</a></td>
-											<td>{{ role.nombre }}</td>
-											<td>{{ role.role }}</td>
-											<td><a href="{{
-												path(
-													'editRole',
-													{ 'id': role.id }
-												)
-												}}"><i class="fa fa-pencil-square-o"></i></a></td>
-											<td><a href="{{
-												path(
-													'deleteRole',
-													{ 'id': role.id }
-												)
-												}}"><i class="fa fa-trash fa-lg"></i></a></td>
-										</tr>
-									{% endfor %}
-							</tbody>
-						</table>
-        			</div> #}
         		</div>
 				<hr>
 			</div>
 		</div>
 	</div>
 {% endblock %}
-{# table table-striped //  table-bordered#}
