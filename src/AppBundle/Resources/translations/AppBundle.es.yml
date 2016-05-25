@@ -37,6 +37,7 @@ bread:
 incidence:
     incidence: 'Incidencias'
     management: 'Gestión de incidencias.'
+    estate: 'Estado'
 
 users:
     users: 'Usuarios'
@@ -47,7 +48,7 @@ table:
     client: 'Cliente'
     help: 'Help Desk'
     tec: 'Técnico'
-    button: 'Nuevo'
+    incidence: 'Incidencia'
     username: 'Nombre'
     surname: 'Apellidos'
     phone: 'Teléfono'
@@ -67,7 +68,8 @@ table:
     delete: 'Borrar'
     question: '¿Estas seguro?'
     new: 'Nueva'
-    button: 'Atrás'
+    buttonA: 'Atrás'
+    buttonN: 'Nueva'
 
 login:
     username: 'Usuario'

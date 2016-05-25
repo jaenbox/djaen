@@ -36,31 +36,33 @@ security:
             anonymous: true
 
     access_control:
-        - { path: ^/[a-z]+/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/[a-z]+/index, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/[a-z]+/admin/new, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/admin/edit, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/admin/delete, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/admin/show, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/user, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/cliente/new, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/[a-z]+/cliente/edit, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/cliente/delete, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/cliente/show, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/helpdesk/new, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/helpdesk/edit, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/helpdesk/delete, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/helpdesk/show, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/tecnico/new, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/editTecnico, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/deleteTecnico, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/tecnico/show, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/incidencia, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_USER, ROLE_HELP ] }
-        - { path: ^/[a-z]+/incidencia/new, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP, ROLE_USER ] }
-        - { path: ^/[a-z]+/incidencia/edit, role: [ ROLE_SUPER_ADMIN, ROLE_HELP, ROLE_TEC ] }
-        - { path: ^/[a-z]+/incidencia/delete, role: [ ROLE_SUPER_ADMIN, ROLE_HELP, ROLE_TEC ] }
-        - { path: ^/[a-z]+/incidencia/list, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP ] }
-        - { path: ^/[a-z]+/incidencia/show, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP, ROLE_USER ] }
-        - { path: ^/[a-z]+/estado/new, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/estado/edit, role: ROLE_SUPER_ADMIN }
-        - { path: ^/[a-z]+/estado/delete, role: ROLE_SUPER_ADMIN }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login_check, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/logout, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/index, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/new, role: ROLE_SUPER_ADMIN }
+        - { path: ^/admin/edit, role: ROLE_SUPER_ADMIN }
+        - { path: ^/admin/delete, role: ROLE_SUPER_ADMIN }
+        - { path: ^/admin/show, role: ROLE_SUPER_ADMIN }
+        - { path: ^/user, role: ROLE_SUPER_ADMIN }
+        - { path: ^/cliente/new, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/cliente/edit, role: ROLE_SUPER_ADMIN }
+        - { path: ^/cliente/delete, role: ROLE_SUPER_ADMIN }
+        - { path: ^/cliente/show, role: ROLE_SUPER_ADMIN }
+        - { path: ^/helpdesk/new, role: ROLE_SUPER_ADMIN }
+        - { path: ^/helpdesk/edit, role: ROLE_SUPER_ADMIN }
+        - { path: ^/helpdesk/delete, role: ROLE_SUPER_ADMIN }
+        - { path: ^/helpdesk/show, role: ROLE_SUPER_ADMIN }
+        - { path: ^/tecnico/new, role: ROLE_SUPER_ADMIN }
+        - { path: ^/editTecnico, role: ROLE_SUPER_ADMIN }
+        - { path: ^/deleteTecnico, role: ROLE_SUPER_ADMIN }
+        - { path: ^/tecnico/show, role: ROLE_SUPER_ADMIN }
+        - { path: ^/incidencia, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_USER, ROLE_HELP ] }
+        - { path: ^/incidencia/new, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP, ROLE_USER ] }
+        - { path: ^/incidencia/edit, role: [ ROLE_SUPER_ADMIN, ROLE_HELP, ROLE_TEC ] }
+        - { path: ^/incidencia/delete, role: [ ROLE_SUPER_ADMIN, ROLE_HELP, ROLE_TEC ] }
+        - { path: ^/incidencia/list, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP ] }
+        - { path: ^/incidencia/show, role: [ ROLE_SUPER_ADMIN, ROLE_TEC, ROLE_HELP, ROLE_USER ] }
+        #- { path: ^/estado/new, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/estado/edit, role: ROLE_SUPER_ADMIN }
+        #- { path: ^/estado/delete, role: ROLE_SUPER_ADMIN }

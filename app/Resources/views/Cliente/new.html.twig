@@ -22,7 +22,9 @@
 		       	</ol>
 		    </div>
 		</div>
-		<a href="{{ path('user') }}"><button type="button" class="btn btn-default">{{ 'table.button' | trans }}</button></a>
+		{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+			<a href="{{ path('user') }}"><button type="button" class="btn btn-default">{{ 'table.buttonA' | trans }}</button></a>
+		{% endif %}
 		<hr>
 		<h2>{{ 'table.client' | trans }}</h2>
 		<div class="row">

@@ -31,7 +31,7 @@
 				<ul class="nav nav-tabs">
 					<li class="active"><a data-toggle="tab" href="#sectionA">{{ 'table.incidence' | trans }}</a></li>
 					{% if is_granted('ROLE_SUPER_ADMIN') %}
-					<li><a data-toggle="tab" href="#sectionB">{{ 'incidence.estate' | trans }}</a></li>
+					{#<li><a data-toggle="tab" href="#sectionB">{{ 'incidence.estate' | trans }}</a></li>#}
 					{% endif %}
 				</ul>
 				<div class="tab-content">
@@ -130,6 +130,7 @@
 						</table>
 						<hr>
 					</div>
+					{#
 					<div id="sectionB" class="tab-pane fade">
         				<h2>{{ 'table.estate' | trans }}</h2>
         				<a href="{{ path('newEstado') }}"><button type="button" class="btn btn-default"><td>{{ 'table.new' | trans }}</td></button></a>
@@ -165,6 +166,7 @@
 							</tbody>
 						</table>
         			</div>
+        			#}
 				</div>
 			</div>
 		</div>

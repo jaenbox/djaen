@@ -456,7 +456,7 @@ class IncidenciaController extends Controller {
 
 		$logger->info(' Selección por defecto estado => "espera" ');
 		$em = $this->getDoctrine()->getManager(); // Se recoge el manager
-		$estado = $em->getRepository('AppBundle:Estado')->find(4);
+		$estado = $em->getRepository('AppBundle:Estado')->find(3);
 
 		return $estado;// Devolvemos el estado por defecto.
 

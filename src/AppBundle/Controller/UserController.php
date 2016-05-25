@@ -15,22 +15,22 @@ class UserController extends Controller {
 	public function defaultAction(Request $request) {
 		// Recogemos el repositorio
 		$repositoryCli = $this->getDoctrine() ->getRepository('AppBundle:Cliente');
-		// recuperamos todos los recintos existentes
+		// recuperamos todos los clientes existentes
 		$clientes = $repositoryCli->findAll();
 
 		// Recogemos el repositorio
 		$repositoryHd = $this->getDoctrine() ->getRepository('AppBundle:HelpDesk');
-		// recuperamos todos los recintos existentes
+		// recuperamos todos los help desk existentes
 		$helpdesks = $repositoryHd->findAll();
 
 		// Recogemos el repositorio
 		$repositoryTec = $this->getDoctrine() ->getRepository('AppBundle:Tecnico');
-		// recuperamos todos los recintos existentes
+		// recuperamos todos los tecnicos existentes
 		$tecnicos = $repositoryTec->findAll();
 
 		// Recogemos el repositorio
 		$repositoryAdm = $this->getDoctrine() ->getRepository('AppBundle:Administrador');
-		// recuperamos todos los recintos existentes
+		// recuperamos todos los administradores existentes
 		$admins = $repositoryAdm->findAll();
 
 		// Se muestra la plantilla por defecto con el listado de todos los usuarios.

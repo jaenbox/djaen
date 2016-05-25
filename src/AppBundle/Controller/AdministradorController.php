@@ -10,18 +10,6 @@ use AppBundle\Entity\Administrador;
 
 class AdministradorController extends Controller {
 
-	public function defaultAction(Request $request) {
-		// Recogemos el repositorio
-		$repository = $this->getDoctrine() ->getRepository('AppBundle:Administrador');
-
-		// recuperamos todos los recintos existentes
-		$admins = $repository->findAll();
-
-		// Se muestra la plantilla por defecto con el listado de incidencias.
-		return $this->render('User/default.html.twig', array( 'admins' => $admins));
-
-	}
-
 	public function newAction(Request $request) {
 
 		// Objeto administrador
